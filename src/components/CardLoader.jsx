@@ -1,10 +1,21 @@
 import Card from "./Card"
+import CardFetch from "./CardFetch"
 
 export default function CardLoader() {
-    const cards = ['1', '2', '3', '4']
+    let pokemons = [ 
+        {id: 1, name: 'pikachu', pic: ''},
+        {id: 2, name: 'ditto', pic: ''}
+    ]
+
+    CardFetch(pokemons)
+    
     return(
         <main id="cards">
-            {cards.map(name => <Card key={cards[name]} name={name}/>)}
+            {pokemons.map(pokemon => 
+                <Card key={pokemon.id} pic={pokemon.pic} name={pokemon.name}/>
+            )}
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt=""/>
+
         </main>
     )
 }
