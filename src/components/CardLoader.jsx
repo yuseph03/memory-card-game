@@ -1,21 +1,16 @@
 import Card from "./Card"
-import CardFetch from "./CardFetch"
+import RandomIndex from "./RandomIndex"
+import RandomPokemon from "./RandomPokemon"
+import { useState } from "react"
 
 export default function CardLoader() {
-    let pokemons = [ 
-        {id: 1, name: 'pikachu', pic: ''},
-        {id: 2, name: 'ditto', pic: ''}
-    ]
-
-    CardFetch(pokemons)
+    const [pokemons, setPokemons] = useState([RandomPokemon(12)])
     
     return(
         <main id="cards">
-            {pokemons.map(pokemon => 
-                <Card key={pokemon.id} pic={pokemon.pic} name={pokemon.name}/>
+            {pokemons.map((pokemon) => 
+                <Card key={pokemon.id} sprite={pokemon.sprite} name={pokemon.name}/>
             )}
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt=""/>
-
         </main>
     )
 }

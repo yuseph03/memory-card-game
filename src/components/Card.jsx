@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'; 
 
-export default function Card({ name, pic }) {   
+export default function Card({ name, sprite }) {   
     return (
         <div>
-            <img src={pic} alt="Pokemon" />
+            <img src={sprite} alt="Pokemon" />
             <p>{name}</p>
         </div>
     )
@@ -11,6 +11,6 @@ export default function Card({ name, pic }) {
 
 Card.propTypes = {
     name: PropTypes.string.isRequired,
-    pic: PropTypes.string.isRequired
+    sprite: PropTypes.string.isRequired
 }
   
