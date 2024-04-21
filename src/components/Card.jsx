@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'; 
 
-export default function Card({ name, sprite }) {   
+export default function Card(props) {   
     return (
         <div>
-            <img src={sprite} alt="Pokemon" />
-            <p>{name}</p>
+            <img src={props.sprite} alt="Pokemon" />
+            <p>{props.name}</p>
         </div>
     )
 }

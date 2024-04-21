@@ -1,15 +1,17 @@
+import { useFetch } from "./hooks/useFetch";
+import Card from "./Card";
+
 export default function RandomPokemon(id) {
-    let pokemon = {};
+    const {loading, data, error} = useFetch(id)
+    
+    if (loading) return <h1>Loading...</h1>
+    if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
 
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-        .then(response => response.json())
-        .then(function (response) {
-            pokemon.name = response.name;
-            pokemon.sprite = response.sprites.other.dream_world.front_default;
-        })
-        .catch(function handleError(error) {
-            console.log("Error" + error);
-        });
-
-    return pokemon;
+    return (
+        <Card 
+        key={data.id} 
+        sprite={data.sprites.other.dream_world.front_default} 
+        name={data.name}
+        />
+    )
 }
