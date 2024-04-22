@@ -1,3 +1,3 @@
-export default function RandomIndex(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
+export default function RandomIndex(max) {
+    return Math.floor(Math.random() * (max - 1 + 1) + 1)
 }

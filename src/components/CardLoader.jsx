@@ -1,13 +1,5 @@
-import RandomIndex from "./RandomIndex"
-import RandomPokemon from "./RandomPokemon"
+import InitPokemons from "./InitPokemons"
 
 export default function CardLoader() {
-    
-    return(
-        <main id="cards">
-            {
-                RandomPokemon(RandomIndex(1, 500))
-            }
-        </main>
-    )
+    return <InitPokemons num={12}/>
 }

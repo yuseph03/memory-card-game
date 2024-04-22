@@ -4,7 +4,9 @@ export default function Card(props) {
     return (
         <div>
             <img src={props.sprite} alt="Pokemon" />
-            <p>{props.name}</p>
+            <p>
+                {props.name}
+            </p>
         </div>
     )
 }

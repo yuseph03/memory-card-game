@@ -6,14 +6,12 @@ export function useFetch(id) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (!id) return;
-
         fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-        .then(response => response.json())
-        .then(setData)
-        .then(() => setLoading(false))
-        .catch(setError)
-    }, [id]);
+            .then(response => response.json())
+            .then(setData)
+            .then(() => setLoading(false))
+            .catch(setError)
+    }, []);
 
     return {
         loading,
