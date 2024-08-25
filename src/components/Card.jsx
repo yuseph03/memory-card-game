@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
+  
 const Card = ({ item, clickCount, onClick }) => {
   return (
     <motion.div

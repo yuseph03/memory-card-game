@@ -1,16 +1,29 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('./assets/anime_house_interior_by_anasofoz_dcmlrme.png') no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh; 
+  cursor: url('./assets/korosensei-hand.png'), pointer;
+}
+
 .title {
   color: yellow;
-  text-shadow: 2px 2px black;
+  text-shadow: 3px 3px black;
 }
 
 .title:hover {
   text-shadow: 3px 3px radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(204,253,45,0.7379085423231793) 100%);
 }
+
 

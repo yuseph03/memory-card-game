@@ -1,15 +1,3 @@
-html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: url('../assets/anime_house_interior_by_anasofoz_dcmlrme.png') no-repeat center center; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 100vh; 
-}
-
 .card-list {
   max-width: 1200px;
   margin: 0 auto;

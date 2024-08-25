@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Card from './Card';
 import { shuffleArray } from './utils/shuffleArray';
+import sound from '../assets/flip.mp3';
+import Card from './Card';
 import './CardList.css';
+import {Howl} from 'howler';
 
+var flipSound = new Howl({
+    src: [sound]
+});
+  
 const CardList = ({ items }) => {
   const [clickCounts, setClickCounts] = useState(() =>
     items.reduce((acc, item) => {
@@ -19,6 +25,7 @@ const CardList = ({ items }) => {
       [id]: prevCounts[id] + 1,
     }));
     setShuffledItems(shuffleArray(shuffledItems));
+    flipSound.play();
   };
 
   useEffect(() => {
