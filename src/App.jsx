@@ -1,17 +1,16 @@
-import './App.css'
-import RandomWaifu from './components/RandomWaifu'
+import React from 'react';
+import InitChars from './components/InitChars';
+import AudioPlayer from './components/AudioPlayer';
+import './App.css';
 
-function App() {
-
+const App = () => {
   return (
-    <>
-      <header>
-        <h1>Pokemon Memory Card Game</h1>
-        <p>Get points by clicking on an image but do not click on any more than once!</p>
-      </header>
-      <RandomWaifu />
-    </>
-  )
-}
+    <div className="App">
+      <h1 className="title">Assassination Classroom 暗殺教室</h1>
+      <AudioPlayer/>
+      <InitChars/>
+    </div>
+  );
+};
 
-export default App
+export default App;
