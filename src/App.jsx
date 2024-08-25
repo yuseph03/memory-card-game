@@ -1,6 +1,6 @@
 import React from 'react';
 import InitChars from './components/InitChars';
-import AudioPlayer from './components/AudioPlayer';
+import AudioPlayer from './components/utils/AudioPlayer';
 import './App.css';
 
 const App = () => {
