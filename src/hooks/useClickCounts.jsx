@@ -11,6 +11,7 @@ const useClickCounts = (items, gameOverThreshold) => {
 
   const [shuffledItems, setShuffledItems] = useState(() => shuffleArray(items));
   const [gameOver, setGameOver] = useState(false);
+  const [score, setScore] = useState(0);
 
   const handleCardClick = useCallback((id) => {
     setClickCounts((prevCounts) => {
@@ -21,6 +22,10 @@ const useClickCounts = (items, gameOverThreshold) => {
 
       if (newCounts[id] > gameOverThreshold) {
         setGameOver(true);
+      }
+
+      if (newCounts[id] === 1) {
+        setScore((prevScore) => prevScore + 1);
       }
 
       return newCounts;
@@ -40,7 +45,7 @@ const useClickCounts = (items, gameOverThreshold) => {
     setGameOver(false);
   }, [items]);
 
-  return [clickCounts, shuffledItems, handleCardClick, resetClickCounts, gameOver];
+  return [clickCounts, shuffledItems, handleCardClick, resetClickCounts, gameOver, score];
 };
 
 export default useClickCounts;

@@ -7,7 +7,7 @@ import './CardList.css';
 
 const CardList = ({ items }) => {
   const gameOverThreshold = 10; 
-  const [clickCounts, shuffledItems, handleCardClick, resetClickCounts, gameOver] = useClickCounts(items, gameOverThreshold);
+  const [clickCounts, shuffledItems, handleCardClick, resetClickCounts, gameOver, score] = useClickCounts(items, gameOverThreshold);
   const [showStartModal, setShowStartModal] = useState(true);
 
   const handleStartGame = () => {
@@ -19,6 +19,7 @@ const CardList = ({ items }) => {
     <div>
       <Modal show={showStartModal} type="start" onStartGame={handleStartGame} />
       <Modal show={gameOver} type="end" onStartGame={handleStartGame} />
+      <div className="score-display">Score: {score}</div>
       <AnimatePresence>
         <div className="card-list">
           {shuffledItems.map((item) => (
