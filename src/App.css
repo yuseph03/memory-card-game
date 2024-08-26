@@ -2,6 +2,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 html {
@@ -22,8 +25,5 @@ html {
   text-shadow: 3px 3px black;
 }
 
-.title:hover {
-  text-shadow: 3px 3px radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(204,253,45,0.7379085423231793) 100%);
-}
 
 

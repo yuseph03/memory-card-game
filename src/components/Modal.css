@@ -1,0 +1,59 @@
+.anime-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .anime-modal-content {
+    background: linear-gradient(135deg, #ebce2c, #17060a 70%);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0px 0px 20px rgba(255, 165, 0, 0.5);
+    max-width: 500px;
+    width: 90%;
+  }
+  
+  .anime-modal-title {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-family: 'Impact', sans-serif;
+  }
+  
+  .anime-modal-button {
+    background: #ff4b2b;
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+  
+  .anime-modal-button:hover {
+    background: #ff416c;
+    transform: translateY(-5px);
+  }
+  
+  .anime-modal-link {
+    background: transparent;
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  .anime-modal-link:hover {
+    background: transparent;
+    color: #ff416c;
+    transform: none;
+  }
+  
