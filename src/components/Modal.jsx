@@ -16,7 +16,9 @@ const Modal = ({ show, type, onStartGame }) => {
             <button className="anime-modal-button" onClick={onStartGame}>
               Start Game
             </button>
-            <a href="https://github.com/yuseph03/memory-card-game" class="modal-button">GitHub Repo</a>
+            <button className="repo-modal-button">
+              <a href="https://github.com/yuseph03/memory-card-game">Github Repo</a>
+            </button>
           </>
         ) : (
           <button className="anime-modal-button" onClick={onStartGame}>

@@ -28,32 +28,21 @@
     font-family: 'Impact', sans-serif;
   }
   
-  .anime-modal-button {
-    background: #ff4b2b;
+.anime-modal-button, .repo-modal-button {
+    background: #e3e312;
     border: none;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 0.75rem 1.5rem;
     border-radius: 10px;
     margin: 0.5rem 0;
     font-size: 1.2rem;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
-  }
-  
-  .anime-modal-button:hover {
+    transition: transform 0.2s;
+}
+
+  .anime-modal-button:hover, .repo-modal-button:hover {
     background: #ff416c;
     transform: translateY(-5px);
-  }
-  
-  .anime-modal-link {
-    background: transparent;
-    color: #fff;
-    text-decoration: underline;
-  }
-  
-  .anime-modal-link:hover {
-    background: transparent;
-    color: #ff416c;
-    transform: none;
+    cursor: inherit;
   }
   

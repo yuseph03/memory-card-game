@@ -1,47 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { shuffleArray } from './utils/shuffleArray';
-import sound from '../assets/flip.mp3';
+import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import Card from './Card';
+import useClickCounts from '../hooks/useClickCounts';
+import Modal from './Modal'; 
 import './CardList.css';
-import {Howl} from 'howler';
 
-var flipSound = new Howl({
-    src: [sound]
-});
-  
 const CardList = ({ items }) => {
-  const [clickCounts, setClickCounts] = useState(() =>
-    items.reduce((acc, item) => {
-      acc[item.id] = 0;
-      return acc;
-    }, {})
-  );
+  const gameOverThreshold = 10; 
+  const [clickCounts, shuffledItems, handleCardClick, resetClickCounts, gameOver] = useClickCounts(items, gameOverThreshold);
+  const [showStartModal, setShowStartModal] = useState(true);
 
-  const [shuffledItems, setShuffledItems] = useState(() => shuffleArray(items));
-
-  const handleCardClick = (id) => {
-    setClickCounts((prevCounts) => ({
-      ...prevCounts,
-      [id]: prevCounts[id] + 1,
-    }));
-    setShuffledItems(shuffleArray(shuffledItems));
-    flipSound.play();
+  const handleStartGame = () => {
+    setShowStartModal(false);
+    resetClickCounts();
   };
 
-  useEffect(() => {
-    setShuffledItems(shuffleArray(items));
-  }, [items]);
-
   return (
-    <div className="card-list">
-      {shuffledItems.map((item) => (
-        <Card
-          key={item.id}
-          item={item}
-          clickCount={clickCounts[item.id]}
-          onClick={handleCardClick}
-        />
-      ))}
+    <div>
+      <Modal show={showStartModal} type="start" onStartGame={handleStartGame} />
+      <Modal show={gameOver} type="end" onStartGame={handleStartGame} />
+      <AnimatePresence>
+        <div className="card-list">
+          {shuffledItems.map((item) => (
+            <Card
+              key={item.id}
+              item={item}
+              clickCount={clickCounts[item.id]}
+              onClick={handleCardClick}
+            />
+          ))}
+        </div>
+      </AnimatePresence>
     </div>
   );
 };
