@@ -11,6 +11,7 @@ const useClickCounts = (items, gameOverThreshold) => {
 
   const [shuffledItems, setShuffledItems] = useState(() => shuffleArray(items));
   const [gameOver, setGameOver] = useState(false);
+  const [wrongClickCount, setWrongClickCount] = useState(0);
   const [score, setScore] = useState(0);
   const [lastClickedId, setLastClickedId] = useState(null);
 
@@ -34,9 +35,18 @@ const useClickCounts = (items, gameOverThreshold) => {
   }, [gameOverThreshold]);
 
   useEffect(() => {
-    if (lastClickedId && clickCounts[lastClickedId] === 1) {
+    if (lastClickedId && clickCounts[lastClickedId] <= 1) {
       setScore((prevScore) => prevScore + 1);
     }
+
+    if (lastClickedId && clickCounts[lastClickedId] > 1) {
+      setWrongClickCount((prevCount) => prevCount + 1)
+    }
+
+    if (wrongClickCount > gameOverThreshold) {
+      setGameOver(true);
+    }
+    
   }, [lastClickedId, clickCounts]);
 
   const resetClickCounts = useCallback(() => {
