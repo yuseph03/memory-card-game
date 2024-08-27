@@ -7,6 +7,11 @@
   padding: 1rem; 
 }
 
+.score-display {
+    color: yellow;
+    text-shadow: 3px 3px black;
+}
+
 .card {
   background: white;
   border-radius: 10px;

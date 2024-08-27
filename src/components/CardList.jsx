@@ -19,7 +19,7 @@ const CardList = ({ items }) => {
     <div>
       <Modal show={showStartModal} type="start" onStartGame={handleStartGame} />
       <Modal show={gameOver} type="end" onStartGame={handleStartGame} />
-      <div className="score-display">Score: {score}</div>
+      <h2 className="score-display">Score: {score}</h2>
       <AnimatePresence>
         <div className="card-list">
           {shuffledItems.map((item) => (

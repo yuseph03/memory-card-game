@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import shuffleArray from '../components/utils/shuffleArray';
 
 const useClickCounts = (items, gameOverThreshold) => {
@@ -12,8 +12,11 @@ const useClickCounts = (items, gameOverThreshold) => {
   const [shuffledItems, setShuffledItems] = useState(() => shuffleArray(items));
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [lastClickedId, setLastClickedId] = useState(null);
 
   const handleCardClick = useCallback((id) => {
+    setLastClickedId(id);
+
     setClickCounts((prevCounts) => {
       const newCounts = {
         ...prevCounts,
@@ -24,15 +27,17 @@ const useClickCounts = (items, gameOverThreshold) => {
         setGameOver(true);
       }
 
-      if (newCounts[id] === 1) {
-        setScore((prevScore) => prevScore + 1);
-      }
-
       return newCounts;
     });
 
     setShuffledItems((prevItems) => shuffleArray(prevItems));
   }, [gameOverThreshold]);
+
+  useEffect(() => {
+    if (lastClickedId && clickCounts[lastClickedId] === 1) {
+      setScore((prevScore) => prevScore + 1);
+    }
+  }, [lastClickedId, clickCounts]);
 
   const resetClickCounts = useCallback(() => {
     setClickCounts(() =>
@@ -43,6 +48,8 @@ const useClickCounts = (items, gameOverThreshold) => {
     );
     setShuffledItems(shuffleArray(items));
     setGameOver(false);
+    setScore(0);
+    setLastClickedId(null);
   }, [items]);
 
   return [clickCounts, shuffledItems, handleCardClick, resetClickCounts, gameOver, score];
