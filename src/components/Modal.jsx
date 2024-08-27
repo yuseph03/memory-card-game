@@ -1,5 +1,5 @@
 import React from 'react';
-import './Modal.css';
+import '../styles/Modal.css';
 
 const Modal = ({ show, type, onStartGame }) => {
   if (!show) return null;
@@ -10,7 +10,9 @@ const Modal = ({ show, type, onStartGame }) => {
         <h2 className="anime-modal-title">
           {type === 'start' ? 'Welcome to the Game!' : 'Game Over!'}
         </h2>
-
+        <p>
+          {type === 'start' ? 'Choose difficulty:' : null}
+        </p>
         {type === 'start' ? (
           <>
             <button className="anime-modal-button" onClick={onStartGame}>

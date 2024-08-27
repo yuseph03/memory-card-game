@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactHowler from 'react-howler';
 import { MdMusicNote, MdMusicOff } from "react-icons/md";
-import './AudioPlayer.css';
+import '../../styles/AudioPlayer.css';
 
 const AudioPlayer = () => {
     const [isMuted, setIsMuted] = useState(true);

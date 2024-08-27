@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import Card from './Card';
 import useClickCounts from '../hooks/useClickCounts';
 import Modal from './Modal'; 
-import './CardList.css';
+import '../styles/CardList.css';
 
 const CardList = ({ items }) => {
   const gameOverThreshold = 10; 
